@@ -18,7 +18,7 @@ class BotaoArredondado extends StatelessWidget {
         width: 56,
         height: 56,
       ),
-      shape: const CircleBorder(),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
       elevation: 6,
       fillColor: cor,
       onPressed: aoPressionar,

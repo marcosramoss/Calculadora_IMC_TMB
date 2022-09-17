@@ -23,7 +23,7 @@ class BotaoCalcular extends StatelessWidget {
           width: double.infinity,
           height: 60,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(16),
             color: cor,
           ),
           child: Text(

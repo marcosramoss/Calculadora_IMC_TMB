@@ -16,7 +16,7 @@ class CartaoPadrao extends StatelessWidget {
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: cor,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: filho,
       ),
