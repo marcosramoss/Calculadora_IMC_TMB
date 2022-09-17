@@ -4,12 +4,10 @@ import 'package:imctmbcalc/pages/splash_page.dart';
 import 'constants/constantes.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.black,
-    ),
-  );
+      systemNavigationBarColor: Colors.black));
   runApp(const MeuApp());
 }
 
@@ -22,8 +20,6 @@ class MeuApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData().copyWith(
         primaryColor: const Color(corPadrao),
-
-        // scaffoldBackgroundColor: const Color(corPadrao),
       ),
       home: const SplashPage(),
     );

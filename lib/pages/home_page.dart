@@ -10,10 +10,7 @@ import '../widgets/filho_cartao_padraro.dart';
 import 'resultado_mulher_page.dart';
 import 'resutado_homem_page.dart';
 
-enum Sexo {
-  masculino,
-  feminino,
-}
+enum Sexo { masculino, feminino }
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -90,7 +87,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ]),
           ),
-          // ================================================= MASCULINO
           sexoSelecionado == Sexo.masculino
               ? Expanded(
                   child: CartaoPadrao(
@@ -129,7 +125,6 @@ class _HomePageState extends State<HomePage> {
                         ]),
                   ),
                 )
-              // ================================================= MASCULINO
               : Expanded(
                   child: CartaoPadrao(
                     cor: const Color(corClaraPadrao),
@@ -169,7 +164,6 @@ class _HomePageState extends State<HomePage> {
                 ),
           Expanded(
             child: Row(children: [
-              // ================================================= MASCULINO
               sexoSelecionado == Sexo.masculino
                   ? Expanded(
                       child: CartaoPadrao(
@@ -198,7 +192,6 @@ class _HomePageState extends State<HomePage> {
                             ]),
                       ),
                     )
-                  // ================================================= FEMININO
                   : Expanded(
                       child: CartaoPadrao(
                         cor: const Color(corClaraPadrao),
@@ -226,7 +219,6 @@ class _HomePageState extends State<HomePage> {
                             ]),
                       ),
                     ),
-              // ================================================= MASCULINO
               sexoSelecionado == Sexo.masculino
                   ? Expanded(
                       child: CartaoPadrao(
@@ -253,7 +245,6 @@ class _HomePageState extends State<HomePage> {
                             ]),
                       ),
                     )
-                  // ================================================= FEMININO
                   : Expanded(
                       child: CartaoPadrao(
                         cor: const Color(corClaraPadrao),
