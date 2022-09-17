@@ -275,7 +275,7 @@ class _HomePageState extends State<HomePage> {
           ),
           sexoSelecionado == Sexo.masculino
               ? BotaoCalcular(
-                  cor: const Color(corClaraPadrao),
+                  cor: const Color(corMasculino),
                   texto: 'CALCULAR',
                   aoPressionar: () {
                     Masculino calc = Masculino(
@@ -307,7 +307,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 )
               : BotaoCalcular(
-                  cor: const Color(corClaraPadrao),
+                  cor: Colors.pink,
                   texto: 'CALCULAR',
                   aoPressionar: () {
                     Feminino calc = Feminino(

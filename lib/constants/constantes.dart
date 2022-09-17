@@ -13,7 +13,7 @@ const int corBotao = 0xffff5822;
 
 var estiloTexto = const TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 var estiloBotaoCalcular = const TextStyle(
-    fontSize: 25, fontWeight: FontWeight.bold, color: Color(corPadrao));
+    fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white);
 
 var estiloNumero = const TextStyle(
   color: Color(corPadrao),
