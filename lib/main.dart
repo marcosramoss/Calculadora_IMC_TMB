@@ -4,7 +4,6 @@ import 'package:imctmbcalc/pages/splash_page.dart';
 import 'constants/constantes.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.black));
