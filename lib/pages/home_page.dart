@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(altura.toString(), style: estiloNumero),
                               const SizedBox(width: 10),
-                              const Text('cm'),
+                              const Text('Cm'),
                             ],
                           ),
                           Slider(
@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Text(altura.toString(), style: estiloNumero),
                               const SizedBox(width: 10),
-                              const Text('cm'),
+                              const Text('Cm'),
                             ],
                           ),
                           Slider(
@@ -307,7 +307,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 )
               : BotaoCalcular(
-                  cor: Colors.pink,
+                  cor: const Color(corFeminino),
                   texto: 'CALCULAR',
                   aoPressionar: () {
                     Feminino calc = Feminino(

@@ -5,7 +5,6 @@ const int corCartaoFeminino = 0xfff06292;
 const int corPadrao = 0xff616161;
 const int corClaraPadrao = 0xffd9d9d9;
 const int corEscuraPadrao = 0xffaaaaaa;
-// const int corAtivaCartaoPadrao = 0xff9E9E9E;
 const int corInativaCartaoPadrao = 0xff7E7E7E;
 const int corMasculino = 0xff2196F3;
 const int corFeminino = 0xffE91E63;
