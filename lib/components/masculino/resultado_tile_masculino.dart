@@ -4,15 +4,15 @@ class ResultadoTileMasculino extends StatelessWidget {
   const ResultadoTileMasculino({
     Key? key,
     required this.cor,
-    required this.widget,
     required this.titulo,
     required this.subtitulo,
+    required this.resultado,
   }) : super(key: key);
 
   final Color cor;
   final String titulo;
   final String subtitulo;
-  final String widget;
+  final String resultado;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class ResultadoTileMasculino extends StatelessWidget {
               ),
             ],
           ),
-          Column(children: [
+          Row(children: [
             Container(
               padding: const EdgeInsets.all(7),
               decoration: BoxDecoration(
@@ -49,7 +49,7 @@ class ResultadoTileMasculino extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Text(
-                widget,
+                resultado,
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:imctmbcalc/controllers/feminino_controller.dart';
+import 'package:imctmbcalc/pages/info_page.dart';
 import '../constants/constantes.dart';
 import '../controllers/masculino_controller.dart';
 import '../widgets/botao_arredondado.dart';
@@ -42,13 +43,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(corClaraPadrao),
+        backgroundColor: Colors.grey,
         centerTitle: true,
         title: const Text(
           'Calculadora IMC - TMB',
-          style: TextStyle(color: Color(corPadrao)),
+          style: TextStyle(color: Colors.white),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const InfoPage(),
+                    ));
+              },
+              icon: const Icon(Icons.info_outline),
+            ),
+          )
+        ],
       ),
+
+      // drawer: const MeuDrawer(),
       body: Column(
         children: [
           const SizedBox(height: 10),

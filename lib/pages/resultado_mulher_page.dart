@@ -54,7 +54,7 @@ class ResultadoMulherPage extends StatelessWidget {
               cor: Colors.pink.shade50,
               titulo: resultado,
               subtitulo: consequencias,
-              widget: 'IMC $mostrarImc',
+              resultado: 'IMC $mostrarImc',
             ),
             const Divider(thickness: 1),
             const SizedBox(height: 10),
@@ -62,34 +62,36 @@ class ResultadoMulherPage extends StatelessWidget {
               cor: Colors.pink.shade50,
               titulo: 'Gasto Energético Basal',
               subtitulo:
-                  '(Calorias necessárias para o bom funcionamento do corpo)',
-              widget: mostrarTmb,
+                  'Seu corpo consome calorias naturalmente para manter seu bom funcionamento, esse valor corresponde as calorias que ele precisa.',
+              resultado: '$mostrarTmb kcal',
             ),
             ResultadoTileFeminino(
               cor: Colors.pink.shade50,
-              titulo: 'Nenhuma atividade física',
-              subtitulo: '(Rotina Sedentária)',
-              widget: ncdSemAtividade,
+              titulo: 'Rotina Sedentária',
+              subtitulo:
+                  'Caso não faça nenhuma atividade física você precisará consumir esse valor em calorias',
+              resultado: '$ncdSemAtividade kcal',
             ),
             ResultadoTileFeminino(
               cor: Colors.pink.shade50,
               titulo: 'Atividade Moderada',
               subtitulo:
-                  '(meia hora de caminhada, natação ou bicicleta, quatro vezes por semana)',
-              widget: ncdComAtividadeModerada,
+                  'Considerando meia hora de caminhada, natação ou bicicleta, quatro vezes por semana',
+              resultado: '$ncdComAtividadeModerada kcal',
             ),
             ResultadoTileFeminino(
               cor: Colors.pink.shade50,
               titulo: 'Atividade física Intensa',
               subtitulo:
-                  '(uma hora de corrida, pelo menos quatro vezes por semana)',
-              widget: ncdComAtividadeIntensa,
+                  'Considerando uma hora de corrida, pelo menos quatro vezes por semana. Exercícios aeróbicos geralmente exige mais energia do corpo',
+              resultado: '$ncdComAtividadeIntensa kcal',
             ),
           ]),
         ),
       ),
       // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.share),
+      //   backgroundColor: Colors.pink,
+      //   child: const Icon(Icons.save),
       //   onPressed: () {},
       // ),
     );
