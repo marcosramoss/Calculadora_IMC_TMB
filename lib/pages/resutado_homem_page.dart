@@ -67,7 +67,7 @@ class ResultadoHomemPage extends StatelessWidget {
             ),
             ResultadoTileMasculino(
               cor: Colors.blue.shade50,
-              titulo: 'Ritina sedentária',
+              titulo: 'Rotina sedentária',
               subtitulo:
                   'Caso não faça nenhuma atividade física você precisará consumir esse valor em calorias',
               resultado: '$ncdSemAtividade kcal',
