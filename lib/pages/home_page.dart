@@ -67,146 +67,84 @@ class _HomePageState extends State<HomePage> {
       ),
 
       // drawer: const MeuDrawer(),
-      body: Column(
-        children: [
-          const SizedBox(height: 10),
-          Expanded(
-            child: Row(children: [
+      body: Align(
+        alignment: Alignment.center,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 800),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
               Expanded(
-                child: CartaoPadrao(
-                  aoPressionar: () {
-                    setState(() {
-                      sexoSelecionado = Sexo.masculino;
-                    });
-                  },
-                  cor: sexoSelecionado == Sexo.masculino
-                      ? const Color(corCartaoMasculino)
-                      : const Color(corClaraPadrao),
-                  filho: const FilhoCartaoPadrao(
-                    icone: Icons.male,
-                    texto: 'Masculino',
+                child: Row(children: [
+                  Expanded(
+                    child: CartaoPadrao(
+                      aoPressionar: () {
+                        setState(() {
+                          sexoSelecionado = Sexo.masculino;
+                        });
+                      },
+                      cor: sexoSelecionado == Sexo.masculino
+                          ? const Color(corCartaoMasculino)
+                          : const Color(corClaraPadrao),
+                      filho: const FilhoCartaoPadrao(
+                        icone: Icons.male,
+                        texto: 'Masculino',
+                      ),
+                    ),
                   ),
-                ),
+                  Expanded(
+                    child: CartaoPadrao(
+                      aoPressionar: () {
+                        setState(() {
+                          sexoSelecionado = Sexo.feminino;
+                        });
+                      },
+                      cor: sexoSelecionado == Sexo.feminino
+                          ? const Color(corCartaoFeminino)
+                          : const Color(corClaraPadrao),
+                      filho: const FilhoCartaoPadrao(
+                        icone: Icons.female,
+                        texto: 'Feminino',
+                      ),
+                    ),
+                  ),
+                ]),
               ),
-              Expanded(
-                child: CartaoPadrao(
-                  aoPressionar: () {
-                    setState(() {
-                      sexoSelecionado = Sexo.feminino;
-                    });
-                  },
-                  cor: sexoSelecionado == Sexo.feminino
-                      ? const Color(corCartaoFeminino)
-                      : const Color(corClaraPadrao),
-                  filho: const FilhoCartaoPadrao(
-                    icone: Icons.female,
-                    texto: 'Feminino',
-                  ),
-                ),
-              ),
-            ]),
-          ),
-          sexoSelecionado == Sexo.masculino
-              ? Expanded(
-                  child: CartaoPadrao(
-                    cor: const Color(corClaraPadrao),
-                    filho: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            'Altura',
-                            style: estiloTexto,
-                            textAlign: TextAlign.center,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.baseline,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: [
-                              Text(altura.toString(), style: estiloNumero),
-                              const SizedBox(width: 10),
-                              const Text('Cm'),
-                            ],
-                          ),
-                          Slider(
-                            activeColor: Colors.blue,
-                            inactiveColor: const Color(corInativaCartaoPadrao),
-                            value: altura.toDouble(),
-                            onChanged: (double novoValor) {
-                              setState(() {
-                                altura = novoValor.round();
-                              });
-                            },
-                            min: 120,
-                            max: 220,
-                          ),
-                        ]),
-                  ),
-                )
-              : Expanded(
-                  child: CartaoPadrao(
-                    cor: const Color(corClaraPadrao),
-                    filho: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            'Altura',
-                            style: estiloTexto,
-                            textAlign: TextAlign.center,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.baseline,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: [
-                              Text(altura.toString(), style: estiloNumero),
-                              const SizedBox(width: 10),
-                              const Text('Cm'),
-                            ],
-                          ),
-                          Slider(
-                            activeColor: Colors.pink,
-                            inactiveColor: const Color(corInativaCartaoPadrao),
-                            value: altura.toDouble(),
-                            onChanged: (double novoValor) {
-                              setState(() {
-                                altura = novoValor.round();
-                              });
-                            },
-                            min: 120,
-                            max: 220,
-                          ),
-                        ]),
-                  ),
-                ),
-          Expanded(
-            child: Row(children: [
               sexoSelecionado == Sexo.masculino
                   ? Expanded(
                       child: CartaoPadrao(
                         cor: const Color(corClaraPadrao),
                         filho: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Text('Peso', style: estiloTexto),
-                              Text(peso.toString(), style: estiloNumero),
+                              Text(
+                                'Altura',
+                                style: estiloTexto,
+                                textAlign: TextAlign.center,
+                              ),
                               Row(
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                textBaseline: TextBaseline.alphabetic,
                                 children: [
-                                  BotaoArredondado(
-                                    cor: Colors.blue,
-                                    icone: Icons.remove,
-                                    aoPressionar: decrementarPeso,
-                                  ),
+                                  Text(altura.toString(), style: estiloNumero),
                                   const SizedBox(width: 10),
-                                  BotaoArredondado(
-                                    cor: Colors.blue,
-                                    icone: Icons.add,
-                                    aoPressionar: incrementarPeso,
-                                  )
+                                  const Text('Cm'),
                                 ],
+                              ),
+                              Slider(
+                                activeColor: Colors.blue,
+                                inactiveColor:
+                                    const Color(corInativaCartaoPadrao),
+                                value: altura.toDouble(),
+                                onChanged: (double novoValor) {
+                                  setState(() {
+                                    altura = novoValor.round();
+                                  });
+                                },
+                                min: 120,
+                                max: 220,
                               ),
                             ]),
                       ),
@@ -216,147 +154,219 @@ class _HomePageState extends State<HomePage> {
                         cor: const Color(corClaraPadrao),
                         filho: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Text('Peso', style: estiloTexto),
-                              Text(peso.toString(), style: estiloNumero),
+                              Text(
+                                'Altura',
+                                style: estiloTexto,
+                                textAlign: TextAlign.center,
+                              ),
                               Row(
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                textBaseline: TextBaseline.alphabetic,
                                 children: [
-                                  BotaoArredondado(
-                                    cor: Colors.pink,
-                                    icone: Icons.remove,
-                                    aoPressionar: decrementarPeso,
-                                  ),
+                                  Text(altura.toString(), style: estiloNumero),
                                   const SizedBox(width: 10),
-                                  BotaoArredondado(
-                                    cor: Colors.pink,
-                                    icone: Icons.add,
-                                    aoPressionar: incrementarPeso,
-                                  )
+                                  const Text('Cm'),
                                 ],
+                              ),
+                              Slider(
+                                activeColor: Colors.pink,
+                                inactiveColor:
+                                    const Color(corInativaCartaoPadrao),
+                                value: altura.toDouble(),
+                                onChanged: (double novoValor) {
+                                  setState(() {
+                                    altura = novoValor.round();
+                                  });
+                                },
+                                min: 120,
+                                max: 220,
                               ),
                             ]),
                       ),
                     ),
-              sexoSelecionado == Sexo.masculino
-                  ? Expanded(
-                      child: CartaoPadrao(
-                        cor: const Color(corClaraPadrao),
-                        filho: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Idade', style: estiloTexto),
-                              Text(idade.toString(), style: estiloNumero),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    BotaoArredondado(
-                                      cor: Colors.blue,
-                                      icone: Icons.remove,
-                                      aoPressionar: decrementarIdade,
-                                    ),
-                                    const SizedBox(width: 10),
-                                    BotaoArredondado(
+              Expanded(
+                child: Row(children: [
+                  sexoSelecionado == Sexo.masculino
+                      ? Expanded(
+                          child: CartaoPadrao(
+                            cor: const Color(corClaraPadrao),
+                            filho: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Peso', style: estiloTexto),
+                                  Text(peso.toString(), style: estiloNumero),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      BotaoArredondado(
+                                        cor: Colors.blue,
+                                        icone: Icons.remove,
+                                        aoPressionar: decrementarPeso,
+                                      ),
+                                      const SizedBox(width: 10),
+                                      BotaoArredondado(
                                         cor: Colors.blue,
                                         icone: Icons.add,
-                                        aoPressionar: incrementarIdade)
-                                  ])
-                            ]),
-                      ),
-                    )
-                  : Expanded(
-                      child: CartaoPadrao(
-                        cor: const Color(corClaraPadrao),
-                        filho: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Idade', style: estiloTexto),
-                              Text(idade.toString(), style: estiloNumero),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    BotaoArredondado(
-                                      cor: Colors.pink,
-                                      icone: Icons.remove,
-                                      aoPressionar: decrementarIdade,
-                                    ),
-                                    const SizedBox(width: 10),
-                                    BotaoArredondado(
+                                        aoPressionar: incrementarPeso,
+                                      )
+                                    ],
+                                  ),
+                                ]),
+                          ),
+                        )
+                      : Expanded(
+                          child: CartaoPadrao(
+                            cor: const Color(corClaraPadrao),
+                            filho: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Peso', style: estiloTexto),
+                                  Text(peso.toString(), style: estiloNumero),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      BotaoArredondado(
+                                        cor: Colors.pink,
+                                        icone: Icons.remove,
+                                        aoPressionar: decrementarPeso,
+                                      ),
+                                      const SizedBox(width: 10),
+                                      BotaoArredondado(
                                         cor: Colors.pink,
                                         icone: Icons.add,
-                                        aoPressionar: incrementarIdade)
-                                  ])
-                            ]),
-                      ),
-                    ),
-            ]),
+                                        aoPressionar: incrementarPeso,
+                                      )
+                                    ],
+                                  ),
+                                ]),
+                          ),
+                        ),
+                  sexoSelecionado == Sexo.masculino
+                      ? Expanded(
+                          child: CartaoPadrao(
+                            cor: const Color(corClaraPadrao),
+                            filho: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Idade', style: estiloTexto),
+                                  Text(idade.toString(), style: estiloNumero),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        BotaoArredondado(
+                                          cor: Colors.blue,
+                                          icone: Icons.remove,
+                                          aoPressionar: decrementarIdade,
+                                        ),
+                                        const SizedBox(width: 10),
+                                        BotaoArredondado(
+                                            cor: Colors.blue,
+                                            icone: Icons.add,
+                                            aoPressionar: incrementarIdade)
+                                      ])
+                                ]),
+                          ),
+                        )
+                      : Expanded(
+                          child: CartaoPadrao(
+                            cor: const Color(corClaraPadrao),
+                            filho: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Idade', style: estiloTexto),
+                                  Text(idade.toString(), style: estiloNumero),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        BotaoArredondado(
+                                          cor: Colors.pink,
+                                          icone: Icons.remove,
+                                          aoPressionar: decrementarIdade,
+                                        ),
+                                        const SizedBox(width: 10),
+                                        BotaoArredondado(
+                                            cor: Colors.pink,
+                                            icone: Icons.add,
+                                            aoPressionar: incrementarIdade)
+                                      ])
+                                ]),
+                          ),
+                        ),
+                ]),
+              ),
+              sexoSelecionado == Sexo.masculino
+                  ? BotaoCalcular(
+                      cor: const Color(corMasculino),
+                      texto: 'CALCULAR',
+                      aoPressionar: () {
+                        Masculino calc = Masculino(
+                          (0),
+                          (0),
+                          (0),
+                          altura: altura,
+                          peso: peso,
+                          idade: idade,
+                        );
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ResultadoHomemPage(
+                              peso: calc.peso.toDouble(),
+                              altura: calc.altura.toDouble(),
+                              idade: calc.idade.toDouble(),
+                              mostrarImc: calc.calcularImc(),
+                              consequencias: calc.mostrarConsequencias(),
+                              resultado: calc.mostrarResultado(),
+                              mostrarTmb: calc.calcularTmbMasculino(),
+                              ncdSemAtividade: calc.ncdMasculinoSemAtividade(),
+                              ncdComAtividadeModerada:
+                                  calc.ncdMasculinoComAtividadeModerada(),
+                              ncdComAtividadeIntensa:
+                                  calc.ncdMasculinoComAtividadeIntensa(),
+                            ),
+                          ),
+                        );
+                      },
+                    )
+                  : BotaoCalcular(
+                      cor: const Color(corFeminino),
+                      texto: 'CALCULAR',
+                      aoPressionar: () {
+                        Feminino calc = Feminino(
+                          (0),
+                          (0),
+                          (0),
+                          altura: altura,
+                          peso: peso,
+                          idade: idade,
+                        );
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ResultadoMulherPage(
+                              peso: calc.peso.toDouble(),
+                              altura: calc.altura.toDouble(),
+                              idade: calc.idade.toDouble(),
+                              mostrarImc: calc.calcularImc(),
+                              consequencias: calc.mostrarConsequencias(),
+                              resultado: calc.mostrarResultado(),
+                              mostrarTmb: calc.calcularTmbFeminino(),
+                              ncdSemAtividade: calc.ncdFemininoSemAtividade(),
+                              ncdComAtividadeModerada:
+                                  calc.ncdFemininoComAtividadeModerada(),
+                              ncdComAtividadeIntensa:
+                                  calc.ncdFemininoComAtividadeIntensa(),
+                            ),
+                          ),
+                        );
+                      },
+                    )
+            ],
           ),
-          sexoSelecionado == Sexo.masculino
-              ? BotaoCalcular(
-                  cor: const Color(corMasculino),
-                  texto: 'CALCULAR',
-                  aoPressionar: () {
-                    Masculino calc = Masculino(
-                      (0),
-                      (0),
-                      (0),
-                      altura: altura,
-                      peso: peso,
-                      idade: idade,
-                    );
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ResultadoHomemPage(
-                          peso: calc.peso.toDouble(),
-                          altura: calc.altura.toDouble(),
-                          idade: calc.idade.toDouble(),
-                          mostrarImc: calc.calcularImc(),
-                          consequencias: calc.mostrarConsequencias(),
-                          resultado: calc.mostrarResultado(),
-                          mostrarTmb: calc.calcularTmbMasculino(),
-                          ncdSemAtividade: calc.ncdMasculinoSemAtividade(),
-                          ncdComAtividadeModerada:
-                              calc.ncdMasculinoComAtividadeModerada(),
-                          ncdComAtividadeIntensa:
-                              calc.ncdMasculinoComAtividadeIntensa(),
-                        ),
-                      ),
-                    );
-                  },
-                )
-              : BotaoCalcular(
-                  cor: const Color(corFeminino),
-                  texto: 'CALCULAR',
-                  aoPressionar: () {
-                    Feminino calc = Feminino(
-                      (0),
-                      (0),
-                      (0),
-                      altura: altura,
-                      peso: peso,
-                      idade: idade,
-                    );
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ResultadoMulherPage(
-                          peso: calc.peso.toDouble(),
-                          altura: calc.altura.toDouble(),
-                          idade: calc.idade.toDouble(),
-                          mostrarImc: calc.calcularImc(),
-                          consequencias: calc.mostrarConsequencias(),
-                          resultado: calc.mostrarResultado(),
-                          mostrarTmb: calc.calcularTmbFeminino(),
-                          ncdSemAtividade: calc.ncdFemininoSemAtividade(),
-                          ncdComAtividadeModerada:
-                              calc.ncdFemininoComAtividadeModerada(),
-                          ncdComAtividadeIntensa:
-                              calc.ncdFemininoComAtividadeIntensa(),
-                        ),
-                      ),
-                    );
-                  },
-                )
-        ],
+        ),
       ),
     );
   }

@@ -37,56 +37,62 @@ class ResultadoMulherPage extends StatelessWidget {
         backgroundColor: Colors.pink,
         title: const Text('Resultado'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Center(
-          child: ListView(children: [
-            DadosDoUsuarioFeminino(
-              cor: Colors.pink.shade100,
-              peso: peso,
-              altura: altura,
-              idade: idade,
+      body: Align(
+        alignment: Alignment.center,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 800),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Center(
+              child: ListView(children: [
+                DadosDoUsuarioFeminino(
+                  cor: Colors.pink.shade100,
+                  peso: peso,
+                  altura: altura,
+                  idade: idade,
+                ),
+                const SizedBox(height: 10),
+                const Divider(thickness: 1),
+                const SizedBox(height: 10),
+                ResultadoTileFeminino(
+                  cor: Colors.pink.shade50,
+                  titulo: resultado,
+                  subtitulo: consequencias,
+                  resultado: 'IMC $mostrarImc',
+                ),
+                const Divider(thickness: 1),
+                const SizedBox(height: 10),
+                ResultadoTileFeminino(
+                  cor: Colors.pink.shade50,
+                  titulo: 'Gasto Energético Basal',
+                  subtitulo:
+                      'Seu corpo consome calorias naturalmente para manter seu bom funcionamento, esse valor corresponde as calorias que ele precisa.',
+                  resultado: '$mostrarTmb kcal',
+                ),
+                ResultadoTileFeminino(
+                  cor: Colors.pink.shade50,
+                  titulo: 'Rotina Sedentária',
+                  subtitulo:
+                      'Caso não faça nenhuma atividade física você precisará consumir esse valor em calorias',
+                  resultado: '$ncdSemAtividade kcal',
+                ),
+                ResultadoTileFeminino(
+                  cor: Colors.pink.shade50,
+                  titulo: 'Atividade Moderada',
+                  subtitulo:
+                      'Considerando meia hora de caminhada, natação ou bicicleta, quatro vezes por semana',
+                  resultado: '$ncdComAtividadeModerada kcal',
+                ),
+                ResultadoTileFeminino(
+                  cor: Colors.pink.shade50,
+                  titulo: 'Atividade física Intensa',
+                  subtitulo:
+                      'Considerando uma hora de corrida, pelo menos quatro vezes por semana. Exercícios aeróbicos geralmente exige mais energia do corpo',
+                  resultado: '$ncdComAtividadeIntensa kcal',
+                ),
+              ]),
             ),
-            const SizedBox(height: 10),
-            const Divider(thickness: 1),
-            const SizedBox(height: 10),
-            ResultadoTileFeminino(
-              cor: Colors.pink.shade50,
-              titulo: resultado,
-              subtitulo: consequencias,
-              resultado: 'IMC $mostrarImc',
-            ),
-            const Divider(thickness: 1),
-            const SizedBox(height: 10),
-            ResultadoTileFeminino(
-              cor: Colors.pink.shade50,
-              titulo: 'Gasto Energético Basal',
-              subtitulo:
-                  'Seu corpo consome calorias naturalmente para manter seu bom funcionamento, esse valor corresponde as calorias que ele precisa.',
-              resultado: '$mostrarTmb kcal',
-            ),
-            ResultadoTileFeminino(
-              cor: Colors.pink.shade50,
-              titulo: 'Rotina Sedentária',
-              subtitulo:
-                  'Caso não faça nenhuma atividade física você precisará consumir esse valor em calorias',
-              resultado: '$ncdSemAtividade kcal',
-            ),
-            ResultadoTileFeminino(
-              cor: Colors.pink.shade50,
-              titulo: 'Atividade Moderada',
-              subtitulo:
-                  'Considerando meia hora de caminhada, natação ou bicicleta, quatro vezes por semana',
-              resultado: '$ncdComAtividadeModerada kcal',
-            ),
-            ResultadoTileFeminino(
-              cor: Colors.pink.shade50,
-              titulo: 'Atividade física Intensa',
-              subtitulo:
-                  'Considerando uma hora de corrida, pelo menos quatro vezes por semana. Exercícios aeróbicos geralmente exige mais energia do corpo',
-              resultado: '$ncdComAtividadeIntensa kcal',
-            ),
-          ]),
+          ),
         ),
       ),
       // floatingActionButton: FloatingActionButton(
